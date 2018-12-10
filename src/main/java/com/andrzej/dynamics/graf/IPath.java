@@ -1,5 +1,6 @@
 package com.andrzej.dynamics.graf;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface IPath {
@@ -8,7 +9,7 @@ public interface IPath {
        informacji zapisanej w postaci binarnej na dziesietna oraz zbudowanie
        grafu na podstawie odczytanego i rozkodowanego kodu binarnego
        */
-    Graph buildGraph(String fileName);
+    Graph buildGraph(String fileName) throws IOException;
 
     /*
         metoda dekodujaca i zwracajaca ciag znakow znajdujacy sie w zadanym wezle;
