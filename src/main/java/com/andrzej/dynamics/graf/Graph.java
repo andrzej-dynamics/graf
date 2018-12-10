@@ -19,4 +19,9 @@ public class Graph {
         final Node node = new Node(nodeValue, links);
         graph.put(nodeIndex, node);
     }
+
+    public Node getNode(int nodeIndex) {
+        return graph.get(nodeIndex);
+    }
+
 }

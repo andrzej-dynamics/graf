@@ -36,13 +36,13 @@ public class Path implements IPath {
             }
             System.out.println("node string_val: " + currentNode.toString() +" "+ input_lines[i+1+nodesCount]);
             System.out.println("node adjecency: " + currentNode.toString() +" "+ input_lines[i+1]);
-
             graph.addNode(currentNode, input_lines[i+nodesCount], links);
         }
         return graph;
     }
 
-    public String decompress(Graph graph, int node, String code) {
+    public String decompress(Graph graph, int nodeIndex, String code) {
+
         return null;
     }
 
