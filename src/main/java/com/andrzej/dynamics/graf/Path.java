@@ -36,14 +36,38 @@ public class Path implements IPath {
             }
             System.out.println("node string_val: " + currentNode.toString() +" "+ input_lines[i+1+nodesCount]);
             System.out.println("node adjecency: " + currentNode.toString() +" "+ input_lines[i+1]);
-            graph.addNode(currentNode, input_lines[i+nodesCount], links);
+//            input_lines[i+nodesCount]
+
+            graph.addNode(currentNode, this.decompress(input_lines[i+nodesCount]), links);
         }
         return graph;
     }
 
-    public String decompress(Graph graph, int nodeIndex, String code) {
+    public String decompress(String code) {
+        String result = "";
+        String tmp = new String(code);
+        List<String> toMultiply = new ArrayList<String>();
 
-        return null;
+        while(tmp.contains("(")){
+            try {
+                toMultiply.add(tmp.substring(tmp.indexOf("(") + 1, tmp.indexOf(")")));
+                tmp = tmp.substring(tmp.indexOf("(") + 1, tmp.indexOf(")"));
+            } catch (Exception e){ }
+        }
+
+        result = result + code.substring(0, code.indexOf("("));
+        String[] vals = new String[2];
+        for(String elem : toMultiply){
+
+            vals = elem.split("\\*");
+            int letterCount =  Integer.parseInt(vals[0]);
+            int repetitions =  Integer.parseInt(vals[1]);
+            String repStr = code.substring(code.indexOf("(") - letterCount, code.indexOf("("));
+            for (int i = 0; i < repetitions; i++) {
+                result = result + repStr;
+            }
+        }
+        return result;
     }
 
     public List<String> findPath(Graph graph, int beginingNode, int destinationNode) {
