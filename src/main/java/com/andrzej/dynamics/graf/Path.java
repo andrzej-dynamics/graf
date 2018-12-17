@@ -69,6 +69,7 @@ public class Path implements IPath {
                 result = result + repStr;
             }
         }
+        result = result + code.substring(code.indexOf(")"));
         return result;
     }
 
