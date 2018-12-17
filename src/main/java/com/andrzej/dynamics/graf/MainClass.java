@@ -5,26 +5,29 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 
+/*
+1. Czy graf został poprawnie odczytany
+1.1 Czy poprawnie rozkodowano strukture grafu
+1.2. Czy liczba wierzchołków zgadza się
+2.1 czy poprawnie rozkodowano ciąg
+2.2 [...]
+- przyk(2x4)(3x2)l(2x2)ad
+-> od lewej do prawej
+- tekst
+*/
+
 /**
  * Created by jazowski_1150904 on 26.11.18.
  */
+
 public class MainClass {
     public static void main(String[] args) throws IOException {
-//        System.out.println("start");
-        String fileName = "";
 
-        BufferedReader reader = new BufferedReader(new FileReader(fileName));
-        StringBuilder stringBuilder = new StringBuilder();
-        String line = null;
-        String ls = System.getProperty("line.separator");
-        while ((line = reader.readLine()) != null) {
-            stringBuilder.append(line);
-            stringBuilder.append(ls);
-        }
-// delete the last new line separator
-        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-        reader.close();
-        String content = stringBuilder.toString();
+        String fileName = "/home/farbanie_1115092/IdeaProjects/graf/src/main/resources/basic_input.txt";
+        Path path = new Path();
+        Graph graph = path.buildGraph(fileName);
+
+//        System.out.println(content);
 
     }
 }
