@@ -35,8 +35,4 @@ public class Graph {
         return edgeList;
     }
 
-    public Node getNode(int nodeIndex) {
-        return graph.get(nodeIndex);
-    }
-
 }
