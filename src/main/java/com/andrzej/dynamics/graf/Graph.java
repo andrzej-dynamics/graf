@@ -23,7 +23,6 @@ public class Graph {
     }
 
     public List<String> shortestPath(int from, int to) {
-        System.out.println("Shortest path from i to c:");
         DijkstraShortestPath<Integer, String> dijkstra = new DijkstraShortestPath<Integer, String>(directedGraph);
         final GraphPath<Integer, String> path = dijkstra.getPath(from, to);
         final List<String> edgeList = new ArrayList<String>();
@@ -35,4 +34,15 @@ public class Graph {
         return edgeList;
     }
 
+    public List<String> shortestPathIndexes(int from, int to) {
+        DijkstraShortestPath<Integer, String> dijkstra = new DijkstraShortestPath<Integer, String>(directedGraph);
+        final GraphPath<Integer, String> path = dijkstra.getPath(from, to);
+        final List<String> edgeList = new ArrayList<String>();
+        for (String rawEdgeLabel : path.getEdgeList()) {
+            final int splitCharacter = rawEdgeLabel.indexOf("-");
+            final String edgeLabel = rawEdgeLabel.substring(0, splitCharacter);
+            edgeList.add(edgeLabel);
+        }
+        return edgeList;
+    }
 }

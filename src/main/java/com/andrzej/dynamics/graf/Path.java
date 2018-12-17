@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class Path implements IPath {
+    private Graph g;
 
 
     public Graph buildGraph(String fileName) throws IOException {
@@ -40,6 +41,7 @@ public class Path implements IPath {
 
             graph.addNode(currentNode, this.decompress(input_lines[i+nodesCount]), links);
         }
+        g = graph;
         return graph;
     }
 
@@ -71,10 +73,10 @@ public class Path implements IPath {
     }
 
     public List<String> findPath(Graph graph, int beginingNode, int destinationNode) {
-        return null;
+        return g.shortestPathIndexes(beginingNode, destinationNode);
     }
 
     public List<String> getPathString(Graph graph, int beginingNode, int destinationNode) {
-        return null;
+        return g.shortestPath(beginingNode, destinationNode);
     }
 }
