@@ -14,15 +14,15 @@ public interface IPath {
     /*
         metoda dekodujaca i zwracajaca ciag znakow znajdujacy sie w zadanym wezle;
     */
-    String decompress(Graph graph, int node, String code);
+    String decompress(String code);
 
     /**
      * metoda znajdująca najkrotsza ścieżkę (numry wezlow) pomiędzy dwoma wezlami
-     * zadanymi na wejsciu
+     * zadanymi na wejsciu, z
      * @param graph - {@link Graph}
      * @param beginingNode - startowy node
      * @param destinationNode - końcowy node
-     * @return scieżekę, która zawiera najmniej lister
+     * @return scieżekę, indeksy wierzcholkow, która zawiera najmniej lister
      */
     List<String> findPath(Graph graph, int beginingNode, int destinationNode);
 
