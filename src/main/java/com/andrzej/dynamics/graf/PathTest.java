@@ -2,6 +2,8 @@ package com.andrzej.dynamics.graf;
 
 //import static org.testng.Assert.*;
 
+import org.testng.Assert;
+
 /**
  * Created by farbanie_1115092 on 10.12.18.
  */
@@ -16,7 +18,7 @@ public class PathTest {
         Path p = new Path();
         String code = "pie(2*3)s";
         String decoded = p.decompress(code);
-        assert decoded.equals("pieieieies");
+        Assert.assertEquals(decoded, "pieieieies");
     }
 
 }
